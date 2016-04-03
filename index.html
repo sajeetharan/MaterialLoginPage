@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/angular_material/0.9.0/angular-material.min.css">
+</head>
+<body ng-app="todos">
+<div ng-controller="TaskCtrl" style="height:100%;">
+    <div layout="column" class="relative" layout-align="center center" layout-fill role="main" style="height:100%;">
+        <md-whiteframe class="md-whiteframe-z5" layout layout-align="center center" style="width:40%;">
+             <md-card class="card-40-center">
+            <md-card-title>
+                <md-card-title-text>
+                    <span class="md-headline">Sign Up</span>
+                </md-card-title-text>
+            </md-card-title>
+            <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" class="signup_form">
+            <div class="md-padding" layout-align="center">
+                <div layout="row">
+            <md-input-container flex="50">
+                <label>First name</label>
+                <input>
+            </md-input-container>
+                <md-input-container flex="50">
+                    <label>Last name</label>
+                    <input>
+                </md-input-container>
+                    </div>
+                <div layout="row">
+                <md-input-container flex="50">
+                    <label>Username</label>
+                    <input>
+                </md-input-container>
+                <md-input-container flex="50">
+                    <label>Email</label>
+                    <input type="email">
+                </md-input-container>
+                    </div>
+                <div layout="row">
+                <md-input-container flex="50">
+                    <label>Password</label>
+                    <input type="password">
+                </md-input-container>
+                <md-input-container flex="50">
+                    <label>Repeat Password</label>
+                    <input type="password">
+                </md-input-container>
+                    </div>
+                <div ng-controller="selectGender as ctrl">
+                    <div layout="row">
+                    <md-input-container flex="50" layout="column" layout-align="center">
+                        <label>Gender</label>
+                        <md-select ng-model="ctrl.userState">
+                            <md-option
+                                ng-repeat="state in ctrl.states"
+                                value="{{state.abbrev}}"
+                                ng-disabled="$index === 2"
+                            >
+                                {{state.abbrev}}
+                            </md-option>
+                        </md-select>
+                    </md-input-container>
+                        <div ng-controller="selectDate">
+                            <div flex="100">
+                                <md-datepicker
+                                    ng-model="myDate"
+                                    md-placeholder="Enter date"
+                                ></md-datepicker>
+                            </div>
+                        </div>
+                        </div>
+
+                </div>
+            </div>
+            </form>
+            <md-card-actions layout="row" layout-align="center">
+                <br>
+                <center>
+                    <md-button class="md-primary md-raised signup_button" type="submit">Sign Up</md-button>
+
+                </center>
+             
+            </md-card-actions>
+            <md-card-content>
+
+            </md-card-content>
+
+        </md-card>
+            </md-whiteframe>
+        </div>
+    </div>
+</body>
+    <script src="bower_components/angular/angular.min.js"></script>
+    <script src="bower_components/ngStorage/ngStorage.min.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.min.js"></script>
+    <script src="bower_components/angular-aria/angular-aria.min.js"></script>
+    <script src="bower_components/angular-material/angular-material.min.js"></script>
+    <script src="bower_components/angular-material-icons/angular-material-icons.min.js"></script>
+    <script src="js/controllers/task.js"></script>
+</html>
